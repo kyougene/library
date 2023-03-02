@@ -56,6 +56,26 @@ function updateDisplay () {
             let card = document.createElement('div');
             card.setAttribute('class', 'book-card'); 
             mainContent.appendChild(card);
-        } 
+            let bookTitle = document.createElement('div');
+            let bookAuthor = document.createElement('div');
+            let bookNumberofPages = document.createElement('div');
+            let bookReadStatus = document.createElement('button');
+            let removeButton = document.createElement('button');
+            bookTitle.setAttribute('class', 'book-title');
+            bookAuthor.setAttribute('class', 'book-author');
+            bookNumberofPages.setAttribute('class', 'number-of-pages');
+            bookReadStatus.setAttribute('class', 'read-status');
+            removeButton.setAttribute('class', 'remove');
+            bookTitle.innerText = book.title;
+            bookAuthor.innerText = book.author;
+            bookNumberofPages.innerText = (book.pageLength);
+            bookReadStatus.innerText = book.readStatus;
+            removeButton.innerText = 'remove';
+            card.appendChild(bookTitle);
+            card.appendChild(bookAuthor);
+            card.appendChild(bookNumberofPages);
+            card.appendChild(bookReadStatus);
+            card.appendChild(removeButton);
+        }
     })
 }
