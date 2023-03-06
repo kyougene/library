@@ -7,6 +7,7 @@ const numberOfPages = document.querySelector('#pages');
 const readStatus = document.querySelector('#read-status')
 const submitButton = document.querySelector('#submitButton');
 const mainContent = document.querySelector('.main-content');
+const bookContent = document.querySelector('.book-content');
 let myLibrary = [];
 
 function Book(title, author, pages, readStatus) {
@@ -51,31 +52,30 @@ function updateForm () {
 }
 
 function updateDisplay () {
+    bookContent.innerHTML = '';
     myLibrary.forEach((book)=> {
-        if (myLibrary.indexOf(book) == (myLibrary.length - 1)){
-            let card = document.createElement('div');
-            card.setAttribute('class', 'book-card'); 
-            mainContent.appendChild(card);
-            let bookTitle = document.createElement('div');
-            let bookAuthor = document.createElement('div');
-            let bookNumberofPages = document.createElement('div');
-            let bookReadStatus = document.createElement('button');
-            let removeButton = document.createElement('button');
-            bookTitle.setAttribute('class', 'book-title');
-            bookAuthor.setAttribute('class', 'book-author');
-            bookNumberofPages.setAttribute('class', 'number-of-pages');
-            bookReadStatus.setAttribute('class', 'read-status');
-            removeButton.setAttribute('class', 'remove');
-            bookTitle.innerText = book.title;
-            bookAuthor.innerText = book.author;
-            bookNumberofPages.innerText = (book.pageLength);
-            bookReadStatus.innerText = book.readStatus;
-            removeButton.innerText = 'remove';
-            card.appendChild(bookTitle);
-            card.appendChild(bookAuthor);
-            card.appendChild(bookNumberofPages);
-            card.appendChild(bookReadStatus);
-            card.appendChild(removeButton);
-        }
+        let card = document.createElement('div');
+        card.setAttribute('class', 'book-card'); 
+        bookContent.appendChild(card);
+        let bookTitle = document.createElement('div');
+        let bookAuthor = document.createElement('div');
+        let bookNumberofPages = document.createElement('div');
+        let bookReadStatus = document.createElement('button');
+        let removeButton = document.createElement('button');
+        bookTitle.setAttribute('class', 'book-title');
+        bookAuthor.setAttribute('class', 'book-author');
+        bookNumberofPages.setAttribute('class', 'number-of-pages');
+        bookReadStatus.setAttribute('class', 'read-status');
+        removeButton.setAttribute('class', 'remove');
+        bookTitle.innerText = book.title;
+        bookAuthor.innerText = book.author;
+        bookNumberofPages.innerText = (book.pageLength);
+        bookReadStatus.innerText = book.readStatus;
+        removeButton.innerText = 'remove';
+        card.appendChild(bookTitle);
+        card.appendChild(bookAuthor);
+        card.appendChild(bookNumberofPages);
+        card.appendChild(bookReadStatus);
+        card.appendChild(removeButton);
     })
 }
