@@ -22,7 +22,7 @@ form.addEventListener ('submit', (e)=> {
 })
 
 submitButton.addEventListener('click', () => {
-    myLibrary.push(new Book(title.value, author.value, numberOfPages.value, readStatus.value));
+    addBookToLibrary(title, author, numberOfPages, readStatus);
     updateDisplay();
     updateForm();
     form.style.display = 'none';
@@ -37,7 +37,7 @@ addABookButton.addEventListener('click', ()=>{
 
 
 function addBookToLibrary () {
-    
+    myLibrary.push(new Book(title.value, author.value, numberOfPages.value, readStatus.value));
 }
 
 function removeBookFromLibrary () {
